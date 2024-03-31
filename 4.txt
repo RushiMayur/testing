@@ -1,8 +1,9 @@
 def f(x):
-    return -(x - 2) ** 2 + 4
+    return -(x-2)**2 + 4
 
-def hillClimbSearch(start=0, step=0.1, max_iter=10000):
-    maxima = start
+def hillClimbSearch(step=0.1, max_iter=10000):
+    start_value = float(input("Enter the starting value to begin the search: "))
+    maxima = start_value
     maxValue = f(maxima)
     for i in range(max_iter):
         left = maxima - step
@@ -18,21 +19,4 @@ def hillClimbSearch(start=0, step=0.1, max_iter=10000):
 
     return maxima, maxValue
 
-# Get user input for the function
-function_str = input("Enter a function of x (e.g., '-(x - 2) ** 2 + 4'): ")
-try:
-    f = lambda x: eval(function_str)
-except:
-    print("Invalid function format")
-    exit()
-
-# Get user input for the starting value
-start_value = float(input("Enter the starting value to begin the search: "))
-
-# Perform hill climb search
-maxima, maxValue = hillClimbSearch(start=start_value)
-
-# Print the results
-print("The maxima is at x =", maxima)
-print("The maximum value obtained is", maxValue)
-7.55884948
+print(hillClimbSearch())
